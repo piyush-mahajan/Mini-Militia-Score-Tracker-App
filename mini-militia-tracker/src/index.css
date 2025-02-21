@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6366f1;
+  --secondary: #1e1b4b;
+  --accent: #4f46e5;
+  --background: #0a0f1c;
+  --card-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  
+  /* New theme colors */
+  --kill-color: #22c55e;
+  --death-color: #ef4444;
+  --assist-color: #3b82f6;
+  --score-positive: #4ade80;
+  --score-negative: #f87171;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.card {
+  @apply bg-slate-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 
+         border border-slate-700/50;
+}
+
+.stat-card {
+  @apply bg-slate-800/50 rounded-xl p-4 backdrop-blur-sm 
+         border border-slate-700/30 hover:border-slate-600/50 
+         transition-all duration-200;
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-indigo-600 text-white rounded-lg 
+         hover:bg-indigo-700 transition-all duration-200 
+         font-medium shadow-lg shadow-indigo-600/20
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-slate-700 text-white rounded-lg 
+         hover:bg-slate-600 transition-all duration-200 
+         font-medium border border-slate-600;
+}
+
+.input-field {
+  @apply bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-2 
+         text-white placeholder-slate-400 focus:outline-none 
+         focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* New score input styles */
+.score-input {
+  @apply bg-slate-700/50 border border-slate-600 rounded-lg 
+         px-3 py-1 text-center w-20 text-white focus:outline-none 
+         focus:ring-2 focus:ring-indigo-500;
+}
+
+/* Player name styles */
+.player-name {
+  @apply flex items-center space-x-2 text-slate-200;
+}
+
+.game-name {
+  @apply text-indigo-400 font-medium;
+}
+
+.real-name {
+  @apply text-slate-400 text-sm;
+}
+
+/* Score indicators */
+.score-positive {
+  @apply text-green-400 font-medium;
+}
+
+.score-negative {
+  @apply text-red-400 font-medium;
+}
+
+/* Table styles */
+.match-table {
+  @apply w-full border-collapse;
+}
+
+.match-table th {
+  @apply bg-slate-700/50 text-slate-300 px-4 py-3 text-left font-medium;
+}
+
+.match-table td {
+  @apply border-t border-slate-700/50 px-4 py-3;
+}
+
+.match-table tr:hover {
+  @apply bg-slate-700/30;
+}
+
+.chart-grid {
+  @apply stroke-slate-700;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-white mb-1;
+}
+
+.stat-label {
+  @apply text-sm text-slate-400;
+} 

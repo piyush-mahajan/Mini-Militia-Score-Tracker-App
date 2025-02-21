@@ -1,0 +1,3 @@
+npm create vite@latest mini-militia-tracker -- --template react
+cd mini-militia-tracker
+npm install @heroicons/react @headlessui/react tailwindcss postcss autoprefixer axios mongoose express cors dotenv 
