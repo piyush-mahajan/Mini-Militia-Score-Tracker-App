@@ -6,6 +6,7 @@ import {
   XMarkIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
+import config from '../config/config';
 
 function ScoreInput({ value, onChange, className }) {
   return (
@@ -120,7 +121,7 @@ function Scoreboard() {
 
   const fetchMatch = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/matches/${id}`);
+      const response = await axios.get(`${config.API_URL}/matches/${id}`);
       setMatch(response.data);
     } catch (error) {
       console.error('Error fetching match:', error);
@@ -135,7 +136,7 @@ function Scoreboard() {
     };
     
     try {
-      await axios.patch(`http://localhost:5000/api/matches/${id}/scores`, {
+      await axios.patch(`${config.API_URL}/matches/${id}/scores`, {
         players: updatedPlayers
       });
       setMatch(prev => ({ ...prev, players: updatedPlayers }));
@@ -151,7 +152,7 @@ function Scoreboard() {
         (current.kills > prev.kills) ? current : prev
       );
 
-      await axios.patch(`http://localhost:5000/api/matches/${id}/end`, {
+      await axios.patch(`${config.API_URL}/matches/${id}/end`, {
         status: 'completed',
         winner: mvp.name,
         duration: Math.floor((Date.now() - new Date(match.date).getTime()) / 60000) // duration in minutes
@@ -178,7 +179,7 @@ function Scoreboard() {
     try {
       setProcessing(true);
       const response = await axios.post(
-        `http://localhost:5000/api/matches/${id}/process-scoreboard`,
+        `${config.API_URL}/matches/${id}/process-scoreboard`,
         formData,
         {
           headers: {

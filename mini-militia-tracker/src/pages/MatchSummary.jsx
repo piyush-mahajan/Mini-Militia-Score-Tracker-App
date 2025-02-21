@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { TrophyIcon, ChartBarIcon, ShareIcon } from '@heroicons/react/24/solid';
+import config from '../config/config';
 
 function MatchSummary() {
   const { id } = useParams();
@@ -13,7 +14,7 @@ function MatchSummary() {
 
   const fetchMatch = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/matches/${id}`);
+      const response = await axios.get(`${config.API_URL}/matches/${id}`);
       const matchData = response.data;
       // Sort players by kills in descending order
       matchData.players.sort((a, b) => b.kills - a.kills);
@@ -97,7 +98,7 @@ function MatchSummary() {
             <h3 className="text-xl font-semibold mb-4">Final Scoreboard</h3>
             <div className="bg-slate-800 rounded-xl p-4">
               <img
-                src={`http://localhost:5000/api/matches/${match._id}/scoreboard-image`}
+                src={`${config.API_URL}/matches/${match._id}/scoreboard-image`}
                 alt="Match Scoreboard"
                 className="rounded-lg max-w-full mx-auto"
               />

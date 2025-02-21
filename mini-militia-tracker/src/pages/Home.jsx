@@ -7,6 +7,7 @@ import {
   ChartBarIcon,
   ClockIcon 
 } from '@heroicons/react/24/solid';
+import config from '../config/config';
 
 function Home() {
   const [recentMatches, setRecentMatches] = useState([]);
@@ -23,7 +24,7 @@ function Home() {
 
   const fetchRecentMatches = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/matches?limit=3');
+      const response = await axios.get(`${config.API_URL}/matches?limit=3`);
       setRecentMatches(response.data);
     } catch (error) {
       console.error('Error fetching matches:', error);
@@ -32,7 +33,7 @@ function Home() {
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/matches/stats');
+      const response = await axios.get(`${config.API_URL}/matches/stats`);
       setStats(response.data);
     } catch (error) {
       console.error('Error fetching stats:', error);

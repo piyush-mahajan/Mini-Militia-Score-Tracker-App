@@ -6,6 +6,7 @@ import {
   XMarkIcon,
   PlayCircleIcon 
 } from '@heroicons/react/24/outline';
+import config from '../config/config';
 
 function MatchSetup() {
   const navigate = useNavigate();
@@ -62,15 +63,11 @@ function MatchSetup() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/matches', {
-        ...matchData,
-        status: 'active',
-        date: new Date(),
-        duration: 0
-      });
+      const response = await axios.post(`${config.API_URL}/matches`, matchData);
       navigate(`/match/${response.data._id}`);
     } catch (error) {
-      setError(error.response?.data?.message || 'Error creating match');
+      setError('Failed to create match');
+      console.error('Error creating match:', error);
     }
   };
 
