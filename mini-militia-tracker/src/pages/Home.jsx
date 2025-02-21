@@ -47,9 +47,17 @@ function Home() {
         <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
           Mini Militia Score Tracker
         </h1>
+       
         <p className="text-xl text-slate-400">
           Track your games, analyze performance, and become the ultimate warrior
+          <br />
+          <p className="text-sm mt-2 text-gray-300 sm:text-center">
+          © 2025 <a href="https://piyushmahajan.vercel.app/" className="hover:underline">Piyush Mahajan</a>. All Rights Reserved.
+
+          </p>
+          
         </p>
+        
         <Link
           to="/setup"
           className="inline-block btn-primary"
