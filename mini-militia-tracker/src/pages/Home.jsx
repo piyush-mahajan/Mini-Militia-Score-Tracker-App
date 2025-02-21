@@ -126,6 +126,7 @@ function Home() {
             View All Matches
           </Link>
         </div>
+        
       </section>
     </div>
   );
